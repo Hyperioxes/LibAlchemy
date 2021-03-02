@@ -1,4 +1,4 @@
-LibAlchemy = LibAlchemy or {}
+LibAlchemy =  {}
 
 
 
@@ -43,8 +43,8 @@ function LibAlchemy:InitializePrices() --Initializes prices using LibPrice, you 
 	LibAlchemy.reagents[139020][2] = LibPrice.ItemLinkToPriceGold("|H0:item:139020:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h")
     
 	--Solvents
-	LibAlchemy.solvents[3][1] = LibPrice.ItemLinkToPriceGold("|H0:item:883:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h")
-	LibAlchemy.solvents[3][2] = LibPrice.ItemLinkToPriceGold("|H0:item:75357:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h")
+	LibAlchemy.solvents[3][1] = LibPrice.ItemLinkToPriceGold("|H0:item:883:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h") or 0--Natural Water
+	LibAlchemy.solvents[3][2] = LibPrice.ItemLinkToPriceGold("|H0:item:75357:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h") or 0--Grease
 	LibAlchemy.solvents[10][1] = LibPrice.ItemLinkToPriceGold("|H0:item:1187:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h")
 	LibAlchemy.solvents[10][2] = LibPrice.ItemLinkToPriceGold("|H0:item:75358:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h")
 	LibAlchemy.solvents[20][1] = LibPrice.ItemLinkToPriceGold("|H0:item:4570:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h")
@@ -59,8 +59,8 @@ function LibAlchemy:InitializePrices() --Initializes prices using LibPrice, you 
 	LibAlchemy.solvents["CP"][79][2] = LibPrice.ItemLinkToPriceGold("|H0:item:75363:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h")
 	LibAlchemy.solvents["CP"][84][1] = LibPrice.ItemLinkToPriceGold("|H0:item:64500:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h")
 	LibAlchemy.solvents["CP"][84][2] = LibPrice.ItemLinkToPriceGold("|H0:item:75364:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h")
-	LibAlchemy.solvents["CP"][258][1] = LibPrice.ItemLinkToPriceGold("|H0:item:64501:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h")
-	LibAlchemy.solvents["CP"][258][2] = LibPrice.ItemLinkToPriceGold("|H0:item:75365:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h")
+	LibAlchemy.solvents["CP"][258][1] = LibPrice.ItemLinkToPriceGold("|H0:item:64501:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h") --Lorkhan Tears
+	LibAlchemy.solvents["CP"][258][2] = LibPrice.ItemLinkToPriceGold("|H0:item:75365:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h") --Alkahest
 
 
 end
@@ -73,18 +73,13 @@ end
 
 
 
-
-
-
-
-
 --input table of effect names for example {"RestoreHealth","RestoreMagicka","RestoreStamina"}
 --you can also add prolonged effect - an effect that will last longer because it appears in the combination 3 times, instead of 2
---prolonged effect always has to have key = 4
+--prolonged effect always has to have index = 4
 --for example, if you want a combination with only 2 effects and one of them to be prolonged you input {"RestoreHealth","RestoreMagicka",[4] = "RestoreHealth"}
 --outputs IDs (1st number in itemLinks, not actual itemLinks) for reagents that will create desired combination for cheapest price
 function LibAlchemy:getBestCombination(tableOfEffects)
-	local effect1,effect2,effect3,prolongedEffect, Combinations
+	local effect1,effect2,effect3,prolongedEffect, Combinations, length
 	if tableOfEffects[1] then
 		effect1 = tableOfEffects[1]
 		length = 1
@@ -100,6 +95,7 @@ function LibAlchemy:getBestCombination(tableOfEffects)
 	if tableOfEffects[4] then
 		prolongedEffect = tableOfEffects[4]
 	end
+
 	if length == 3 then
 		Combinations = LibAlchemy:ThreeEffects(effect1,effect2,effect3)
 		if Combinations[1] == nil then 
@@ -146,13 +142,15 @@ function LibAlchemy:getBestCombination(tableOfEffects)
 end
 
 
+
+
+
 --input table of reagents' IDs for example {30148,30149,30150} and itemLink
 --outputs crafting cost
 function LibAlchemy:getCraftingCost(reagentsTable,itemLink)
-	local x,mainID,solvent,CP
+	local mainID,solvent,CP
 	if GetItemLinkItemType(itemLink) == ITEMTYPE_MASTER_WRIT then
-		x = LibAlchemy:ATconvertItemLink(itemLink)
-		mainID = x.solvent
+		mainID = LibAlchemy:ATconvertItemLink(itemLink)
 		solvent = 50
 		CP = 258
 	else
@@ -187,15 +185,18 @@ end
 
 
 
+
+
+
 --input itemLink
 --outputs cheapest combination of reagents that will craft potion/poison required to fulfill master writ
 function LibAlchemy:getBestCombinationMasterWrit(itemLink)
-	local x = LibAlchemy:ATconvertItemLink(itemLink)
-	if x.solvent == 199 or x.solvent == 239 then 
-		local effect1 = LibAlchemy.effectsByWritID[x.effect1]
-		local effect2 = LibAlchemy.effectsByWritID[x.effect2]
-		local effect3 = LibAlchemy.effectsByWritID[x.effect3]
-		if table.effect3 == 0 then
+	local solvent,effect1,effect2,effect3 = LibAlchemy:ATconvertItemLink(itemLink)
+	if solvent == 199 or solvent == 239 then 
+		effect1 = LibAlchemy.effectsByWritID[effect1]
+		effect2 = LibAlchemy.effectsByWritID[effect2]
+		effect3 = LibAlchemy.effectsByWritID[effect3]
+		if effect3 == 0 then
 			local Combinations = LibAlchemy:TwoEffects(effect1,effect2)
 			Combinations = LibAlchemy:sortOutWrongCombinations3(Combinations,{effect1,effect2})
 			return LibAlchemy:getCheapestCombination(Combinations)
@@ -354,17 +355,6 @@ end
 
 
 
-function LibAlchemy:getNameFromID(id) -- Gets item's name from item's id
-	return zo_strformat("<<t:1>>", GetItemLinkName(("|H0:item:%d:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h"):format(id)))
-end
-
-function LibAlchemy:checkLength(table) --Returns table's length
-	count = 0
-	for _ in pairs(table) do
-		count = count +1
-	end
-	return count
-end
 
 
 --tableOfTables is a table of tables of possible combinations for example {{30148,30160},{30149,30150},{30151,30152,30153}}
@@ -404,30 +394,21 @@ function LibAlchemy:sortOutWrongCombinations3(allCombinations,effects)
 	local result = {}
 
 	for key1,value1 in pairs(allCombinations) do
-		if LibAlchemy:checkLength(value1) == 3 then
+		if #value1 == 3 then
 			if LibAlchemy:checkIfAdditional3(value1,effects) then
 				result[#result+1] = value1
 			end
 		end
-		if LibAlchemy:checkLength(value1) == 2 then
+		if #value1 == 2 then
 			result[#result+1] = value1
 		end
 	end
 	return result
 end
 
-function LibAlchemy:checkIfIn(value,table)
-	for key1,value1 in pairs(table) do
-		if value ~= value1 then
-			return false
-		end
-	return true
-
-end
 
 
 
-end
 function LibAlchemy:sortOutAdditional(allCombinations,additionalEffect)
 	local result = {}
 
@@ -454,20 +435,9 @@ function LibAlchemy:sortOutAdditional(allCombinations,additionalEffect)
 end
 
 
-function LibAlchemy:ATconvertItemLink(itemLink)
-	local link = { ZO_LinkHandler_ParseLink(itemLink) }
-	local table = {
-                
-		solvent= tonumber(link[10]),
-		effect1 = tonumber(link[11]),
-		effect2 = tonumber(link[12]),
-		effect3 = tonumber(link[13])
-                
-	}
-
-        
-
-	return table
+function LibAlchemy:ATconvertItemLink(itemLink) -- input itemLink, returns solvent,effect1,effect2,effect3
+	local link = {ZO_LinkHandler_ParseLink(itemLink)}       
+	return tonumber(link[10]),tonumber(link[11]),tonumber(link[12]),tonumber(link[13])
 end
 
 
@@ -648,4 +618,45 @@ function LibAlchemy:getTextureFromID(id,size)
 
 end
 
+
+
+
+function LibAlchemy:GetEffectsFromItemLink(itemLink)
+	local id = select(24,ZO_LinkHandler_ParseLink(itemLink)) or 0
+	local effect1,effect2,effect3,effect4
+	local calculation = math.floor(id / 65536) % 256
+	if calculation > 32 then
+		effect1 = calculation - 128
+		effect4 = effect1
+	else
+		effect1 = calculation
+	end
+	if (math.floor(id / 256) % 256) > 32 then
+		effect2 = (math.floor(id / 256) % 256)-128
+		effect4 = effect2
+	else
+		effect2 = math.floor(id / 256) % 256
+	end
+	if (id % 256) > 32 then
+		effect3 = (id % 256)-128
+		effect4 = effect3
+	else
+		effect3 = id % 256
+	end
+	return effect1,effect2,effect3,effect4
+
+
+
+
+
+end
+
+function LibAlchemy:GenerateItemLinkFromID(id)
+	return "|H0:item:"..id..":30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h"
+end
+
+function LibAlchemy:getNameFromID(id)
+	return GetItemLinkName(LibAlchemy:GenerateItemLinkFromID(id))
+end
+	
 
