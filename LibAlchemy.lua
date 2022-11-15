@@ -8,7 +8,7 @@ LibAlchemy =  {}
 
 
 function LibAlchemy:InitializePrices() --Initializes prices using LibPrice, you need to call this function in your addon before you can use any price related functions
-	
+
 	--Reagents
 	LibAlchemy.reagents[30148][2] = LibPrice.ItemLinkToPriceGold("|H0:item:30148:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h")
 	LibAlchemy.reagents[30160][2] = LibPrice.ItemLinkToPriceGold("|H0:item:30160:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h")
@@ -41,7 +41,7 @@ function LibAlchemy:InitializePrices() --Initializes prices using LibPrice, you 
 	LibAlchemy.reagents[150671][2] = LibPrice.ItemLinkToPriceGold("|H0:item:150671:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h")
 	LibAlchemy.reagents[139019][2] = LibPrice.ItemLinkToPriceGold("|H0:item:139019:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h")
 	LibAlchemy.reagents[139020][2] = LibPrice.ItemLinkToPriceGold("|H0:item:139020:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h")
-    
+
 	--Solvents
 	LibAlchemy.solvents[3][1] = LibPrice.ItemLinkToPriceGold("|H0:item:883:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h") or 0--Natural Water
 	LibAlchemy.solvents[3][2] = LibPrice.ItemLinkToPriceGold("|H0:item:75357:30:1:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0|h|h") or 0--Grease
@@ -98,13 +98,13 @@ function LibAlchemy:getBestCombination(tableOfEffects)
 
 	if length == 3 then
 		Combinations = LibAlchemy:ThreeEffects(effect1,effect2,effect3)
-		if Combinations[1] == nil then 
+		if Combinations[1] == nil then
 			Combinations = LibAlchemy:ThreeEffectsAlt(effect1,effect2,effect3)
 		end
 		Combinations = LibAlchemy:sortOutWrongCombinations3(Combinations,{effect1,effect2,effect3})
 		if prolongedEffect then
 			Combinations = LibAlchemy:sortOutAdditional(Combinations,prolongedEffect)
-		end 
+		end
 		BestCombination = LibAlchemy:getCheapestCombination(Combinations)
 		return BestCombination
 	elseif length == 2 then
@@ -163,13 +163,13 @@ function LibAlchemy:getCraftingCost(reagentsTable,itemLink)
 	for key1,value1 in pairs(reagentsTable) do
 		result = result + LibAlchemy.reagents[value1][2]
 	end
-    
+
 	if solvent == 50 then
 		result = result + LibAlchemy.solvents["CP"][CP][type]
 	else
 		result = result + LibAlchemy.solvents[solvent][type]
 	end
-	if mainID == 239 then 
+	if mainID == 239 then
 		return result
 	elseif mainID == 199 then
 		return result*4
@@ -192,7 +192,7 @@ end
 --outputs cheapest combination of reagents that will craft potion/poison required to fulfill master writ
 function LibAlchemy:getBestCombinationMasterWrit(itemLink)
 	local solvent,effect1,effect2,effect3 = LibAlchemy:ATconvertItemLink(itemLink)
-	if solvent == 199 or solvent == 239 then 
+	if solvent == 199 or solvent == 239 then
 		effect1 = LibAlchemy.effectsByWritID[effect1]
 		effect2 = LibAlchemy.effectsByWritID[effect2]
 		effect3 = LibAlchemy.effectsByWritID[effect3]
@@ -202,7 +202,7 @@ function LibAlchemy:getBestCombinationMasterWrit(itemLink)
 			return LibAlchemy:getCheapestCombination(Combinations)
 		else
 			local Combinations = LibAlchemy:ThreeEffects(effect1,effect2,effect3)
-			if Combinations[1] == nil then 
+			if Combinations[1] == nil then
 				Combinations = LibAlchemy:ThreeEffectsAlt(effect1,effect2,effect3)
 			end
 			return LibAlchemy:getCheapestCombination(Combinations)
@@ -229,19 +229,19 @@ end
 
 
 function LibAlchemy:getCraftingCostWithoutItemLink(reagentsTable,mainID,solvent,CP)
-	
+
 	local result = 0
 	local type = 2
 	for key1,value1 in pairs(reagentsTable) do
 		result = result + reagents[value1][2]
 	end
-    
+
 	if solvent == 50 then
 		result = result + solvents["CP"][CP][type]
 	else
 		result = result + solvents[solvent][type]
 	end
-	if mainID == 239 then 
+	if mainID == 239 then
 		return result
 	elseif mainID == 199 then
 		return result*4
@@ -263,7 +263,7 @@ end
 function LibAlchemy:checkIfCorrect(tableOfReagents,effectToCheck) -- Checks if any of reagents in the table has effect opposite to effectToCheck
 
 	for key1,value1 in pairs(tableOfReagents) do
-    
+
 		for key2,value2 in pairs(LibAlchemy.reagents[value1][3]) do
 
 			if value2 == LibAlchemy.opposites[effectToCheck] then
@@ -418,13 +418,13 @@ function LibAlchemy:sortOutAdditional(allCombinations,additionalEffect)
 		if value1[3] then
 
 			for key2,value2 in pairs(value1) do
-			
+
 
 				if LibAlchemy:checkIfNotIn(additionalEffect,LibAlchemy.reagents[value2][3]) then
-				
+
 					temp = false
 				end
-			
+
 			end
 			if temp then
 					result[#result+1] = value1
@@ -436,7 +436,7 @@ end
 
 
 function LibAlchemy:ATconvertItemLink(itemLink) -- input itemLink, returns solvent,effect1,effect2,effect3
-	local link = {ZO_LinkHandler_ParseLink(itemLink)}       
+	local link = {ZO_LinkHandler_ParseLink(itemLink)}
 	return tonumber(link[10]),tonumber(link[11]),tonumber(link[12]),tonumber(link[13])
 end
 
@@ -491,13 +491,13 @@ function LibAlchemy:TwoEffects(first,second)
 				if LibAlchemy:checkIfCorrect({value1[2],value2[1],value2[2]},first) and LibAlchemy:checkIfCorrect({value1[2],value2[1],value2[2]},second) then
 					connectedIngredients2[#connectedIngredients2+1]={value1[2],value2[1],value2[2]}
 				end
-                
-            
+
+
 			elseif LibAlchemy:tableContains(value2,value1[2]) then
 				if LibAlchemy:checkIfCorrect({value1[1],value2[1],value2[2]},first) and LibAlchemy:checkIfCorrect({value1[1],value2[1],value2[2]},second) then
 					connectedIngredients2[#connectedIngredients2+1]={value1[1],value2[1],value2[2]}
 				end
-                
+
 			end
 		end
 	end
@@ -536,7 +536,7 @@ function LibAlchemy:ThreeEffectsAlt(first,second,third)
 	end
 	return connectedIngredients
 end
-    
+
 
 function LibAlchemy:ThreeEffects(first,second,third)
 	connectedIngredients3 = {}
@@ -549,17 +549,17 @@ function LibAlchemy:ThreeEffects(first,second,third)
 	for key1,value1 in pairs(firstConnectedIngredients) do
 		for key2,value2 in pairs(secondConnectedIngredientsX) do
 			for key3,value3 in pairs(value2) do
-                
+
 				if (value1[1] == value3 or value1[2]==value3) and table.getn(value2) == 2 then
 					if key3 == 1 then
 
 						connectedIngredients3[#connectedIngredients3+1]={value1[1],value1[2],value2[2]}
-                        
+
 					end
 					if key3 == 2 then
 
 						connectedIngredients3[#connectedIngredients3+1]={value1[1],value1[2],value2[1]}
-                        
+
 					end
 				end
 			end
@@ -568,43 +568,43 @@ function LibAlchemy:ThreeEffects(first,second,third)
 	for key1,value1 in pairs(secondConnectedIngredients) do
 		for key2,value2 in pairs(thirdConnectedIngredientsX) do
 			for key3,value3 in pairs(value2) do
-                
+
 				if (value1[1] == value3 or value1[2]==value3) and table.getn(value2) == 2 then
 					if key3 == 1 then
 
 						connectedIngredients3[#connectedIngredients3+1]={value1[1],value1[2],value2[2]}
-                        
+
 					end
 					if key3 == 2 then
 
 						connectedIngredients3[#connectedIngredients3+1]={value1[1],value1[2],value2[1]}
-                        
+
 					end
 				end
 			end
-		end            
+		end
 	end
 
 	for key1,value1 in pairs(thirdConnectedIngredients) do
 		for key2,value2 in pairs(firstConnectedIngredientsX) do
 			for key3,value3 in pairs(value2) do
-                
+
 				if (value1[1] == value3 or value1[2]==value3) and table.getn(value2) == 2 then
 					if key3 == 1 then
 
 						connectedIngredients3[#connectedIngredients3+1]={value1[1],value1[2],value2[2]}
-                        
+
 					end
 					if key3 == 2 then
 
 						connectedIngredients3[#connectedIngredients3+1]={value1[1],value1[2],value2[1]}
-                        
+
 					end
 				end
-			end    
+			end
 		end
 	end
-    
+
 	return connectedIngredients3
 end
 
@@ -658,5 +658,3 @@ end
 function LibAlchemy:getNameFromID(id)
 	return GetItemLinkName(LibAlchemy:GenerateItemLinkFromID(id))
 end
-	
-
