@@ -1,15 +1,11 @@
-
 ## Title: LibAlchemy
 ## Author: Hyperioxes
 ## IsLibrary: true
 ## APIVersion: 101036
-## Version: 1.5
-## AddOnVersion: 15
+## Version: 1.6
+## AddOnVersion: 16
 ## IsLibrary: true
-## OptionalDependsOn: LibPrice
-
+## DependsOn: LibPrice
 
 LibAlchemy.lua
 LibAlchemy_Database.lua
-
-
