@@ -11,7 +11,6 @@ LibAlchemy.SOURCE_ATTip = 4
 
 function LibAlchemy:InitializePrices(source)
   --Initializes prices using LibPrice, you need to call this function in your addon before you can use any price related functions
-  local alreadyInitialized = false
   if source == LibAlchemy.SOURCE_MM and LibAlchemy.isMMInitialized then return end
   if source == LibAlchemy.SOURCE_ATT and LibAlchemy.isATTInitialized then return end
   if source == LibAlchemy.SOURCE_TTC and LibAlchemy.isTTCInitialized then return end

@@ -10,7 +10,6 @@ LibAlchemy.reagents = {
       [3] = "Cowardice",
       [4] = "Invisible",
     },
-
   },
   [30160] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_flower_vipers_bugloss_r1.dds|t|",
@@ -21,7 +20,6 @@ LibAlchemy.reagents = {
       [3] = "RestoreHealth",
       [4] = "RestoreMagicka",
     },
-
   },
   [77585] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_poisonmaking_reagent_butterfly_wing.dds|t|",
@@ -32,8 +30,6 @@ LibAlchemy.reagents = {
       [3] = "Uncertainty",
       [4] = "Vitality",
     },
-
-
   },
   [30164] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_flower_columbine_r1.dds|t|",
@@ -43,9 +39,7 @@ LibAlchemy.reagents = {
       [2] = "RestoreMagicka",
       [3] = "RestoreStamina",
       [4] = "Unstoppable",
-
     },
-
   },
   [30163] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_flower_mountain_flower_r1.dds|t|",
@@ -55,9 +49,7 @@ LibAlchemy.reagents = {
       [2] = "Maim",
       [3] = "RestoreHealth",
       [4] = "RestoreStamina",
-
     },
-
   },
   [30158] = { --Lady's Smock
     [1] = "|t-64:64:/esoui/art/icons/crafting_forester_potion_sp_names_001.dds|t|",
@@ -68,7 +60,6 @@ LibAlchemy.reagents = {
       [3] = "SpellCritical",
       [4] = "Breach",
     },
-
   },
   [30161] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_flower_corn_flower_r1.dds|t|",
@@ -79,7 +70,6 @@ LibAlchemy.reagents = {
       [3] = "RavageHealth",
       [4] = "Detection",
     },
-
   },
   [30162] = {  --Dragonthorn
     [1] = "|t-64:64:/esoui/art/icons/crafting_forester_potion_sp_names_002.dds|t|",
@@ -90,7 +80,6 @@ LibAlchemy.reagents = {
       [3] = "RestoreStamina",
       [4] = "WeaponCritical",
     },
-
   },
   [30157] = {  --Blessed Thistle
     [1] = "|t-64:64:/esoui/art/icons/crafting_cloth_serrated_leaves.dds|t|",
@@ -101,7 +90,6 @@ LibAlchemy.reagents = {
       [3] = "IncreaseWeaponPower",
       [4] = "Speed",
     },
-
   },
   [30153] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_mushroom_namiras_rot_r1.dds|t|",
@@ -111,9 +99,7 @@ LibAlchemy.reagents = {
       [2] = "Invisible",
       [3] = "Speed",
       [4] = "Unstoppable",
-
     },
-
   },
   [77583] = { --Beetle Scuttle
     [1] = "|t-64:64:/esoui/art/icons/crafting_poisonmaking_reagent_scuttle.dds|t|",
@@ -124,7 +110,6 @@ LibAlchemy.reagents = {
       [3] = "Vitality",
       [4] = "IncreaseArmor",
     },
-
   },
   [150789] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_dragons_bile.dds|t|",
@@ -135,7 +120,6 @@ LibAlchemy.reagents = {
       [3] = "Vulnerability",
       [4] = "Vitality",
     },
-
   },
   [150731] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_dragons_blood.dds|t|",
@@ -146,7 +130,6 @@ LibAlchemy.reagents = {
       [3] = "RestoreStamina",
       [4] = "Defile",
     },
-
   },
   [150671] = { --Dragon Rheum
     [1] = "|t-64:64:/esoui/art/icons/item_u24_dragonstears.dds|t|",
@@ -157,7 +140,6 @@ LibAlchemy.reagents = {
       [3] = "Enervation",
       [4] = "Speed",
     },
-
   },
   [30151] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_mushroom_emetic_russula_r1.dds|t|",
@@ -168,7 +150,6 @@ LibAlchemy.reagents = {
       [3] = "RavageStamina",
       [4] = "Entrapment",
     },
-
   },
   [77587] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_poisonmaking_reagent_fleshfly_larva.dds|t|",
@@ -179,7 +160,6 @@ LibAlchemy.reagents = {
       [3] = "Vulnerability",
       [4] = "Vitality",
     },
-
   },
   [30156] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_mushroom_imp_stool_r2.dds|t|",
@@ -190,7 +170,6 @@ LibAlchemy.reagents = {
       [3] = "RavageStamina",
       [4] = "Enervation",
     },
-
   },
   [30155] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_mushroom_luminous_russula_r1.dds|t|",
@@ -201,8 +180,6 @@ LibAlchemy.reagents = {
       [3] = "Maim",
       [4] = "Hindrance",
     },
-
-
   },
   [77591] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_poisonmaking_reagent_mudcrab_chitin.dds|t|",
@@ -213,7 +190,6 @@ LibAlchemy.reagents = {
       [3] = "IncreaseArmor",
       [4] = "Defile",
     },
-
   },
   [77590] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_nightshade_01.dds|t|",
@@ -224,7 +200,6 @@ LibAlchemy.reagents = {
       [3] = "Protection",
       [4] = "Defile",
     },
-
   },
   [30165] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_water_plant_nirnroot_r1.dds|t|",
@@ -235,7 +210,6 @@ LibAlchemy.reagents = {
       [3] = "Uncertainty",
       [4] = "Invisible",
     },
-
   },
   [77589] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_poisonmaking_reagent_scrib_jelly.dds|t|",
@@ -246,7 +220,6 @@ LibAlchemy.reagents = {
       [3] = "Speed",
       [4] = "LingeringHealth",
     },
-
   },
   [77584] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_poisonmaking_reagent_spider_egg.dds|t|",
@@ -257,7 +230,6 @@ LibAlchemy.reagents = {
       [3] = "Invisible",
       [4] = "Defile",
     },
-
   },
   [30149] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_mushroom_stinkhorn_cap_r1.dds|t|",
@@ -268,7 +240,6 @@ LibAlchemy.reagents = {
       [3] = "RavageHealth",
       [4] = "RavageStamina",
     },
-
   },
   [77581] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_poisonmaking_reagent_torchbug_thorax.dds|t|",
@@ -279,7 +250,6 @@ LibAlchemy.reagents = {
       [3] = "Enervation",
       [4] = "Vitality",
     },
-
   },
   [30152] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_mushroom_violet_coprinus_r1.dds|t|",
@@ -290,7 +260,6 @@ LibAlchemy.reagents = {
       [3] = "RavageHealth",
       [4] = "RavageMagicka",
     },
-
   },
   [30166] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_water_plant_water_hyacinth_r1.dds|t|",
@@ -301,7 +270,6 @@ LibAlchemy.reagents = {
       [3] = "SpellCritical",
       [4] = "Entrapment",
     },
-
   },
   [30154] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_mushroom_white_cap_r1.dds|t|",
@@ -312,7 +280,6 @@ LibAlchemy.reagents = {
       [3] = "RavageMagicka",
       [4] = "Detection",
     },
-
   },
   [30159] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_flower_wormwood_r1.dds|t|",
@@ -323,7 +290,6 @@ LibAlchemy.reagents = {
       [3] = "Unstoppable",
       [4] = "Hindrance",
     },
-
   },
   [139020] = { --Clam Gall
     [1] = "|t-64:64:esoui/art/icons/crafting_cloth_sap.dds|t|",
@@ -334,7 +300,6 @@ LibAlchemy.reagents = {
       [3] = "Vulnerability",
       [4] = "Defile",
     },
-
   },
   [139019] = { --Mother of Pearl
     [1] = "|t-64:64:/esoui/art/icons/crafting_style_item_celestial_r1.dds|t|",
@@ -345,7 +310,6 @@ LibAlchemy.reagents = {
       [3] = "Vitality",
       [4] = "Protection",
     },
-
   },
   [150672] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_water_plant_nirnroot_crimson.dds|t|",
@@ -356,7 +320,6 @@ LibAlchemy.reagents = {
       [3] = "GradualRavageHealth",
       [4] = "RestoreHealth",
     },
-
   },
   [150670] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_vile_coagula.dds|t|",
@@ -367,7 +330,6 @@ LibAlchemy.reagents = {
       [3] = "RestoreMagicka",
       [4] = "Protection",
     },
-
   },
   [150669] = {
     [1] = "|t-64:64:/esoui/art/icons/crafting_chaurus_eggs.dds|t|",
@@ -378,9 +340,7 @@ LibAlchemy.reagents = {
       [3] = "RestoreStamina",
       [4] = "Detection",
     },
-
   },
-
 }
 
 LibAlchemy.solvents = {
@@ -762,15 +722,11 @@ LibAlchemy.effects = {
     [2] = 77587, --Fleshfly Larva
     [3] = 77589, --Scrib Jelly
     [4] = 139020, --Clam Gall
-
-
-
   },
   ["Timidity"] = {
     [1] = 150672, --Nirnroot Crimson
     [2] = 150670, --Vile Coagulant
     [3] = 150669, --Chaurus Egg
   }
-
 }
 
