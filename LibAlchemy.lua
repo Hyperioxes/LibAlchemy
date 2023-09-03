@@ -9,6 +9,17 @@ LibAlchemy.SOURCE_ATT = 2
 LibAlchemy.SOURCE_TTC = 3
 LibAlchemy.SOURCE_ATTip = 4
 
+-- Input effects indices
+local EFFECT_INDEX_PRIMARY = 1
+local EFFECT_INDEX_SECONDARY = 2
+local EFFECT_INDEX_TERTIARY = 3
+local EFFECT_INDEX_PROLONGED = 4
+
+-- Effect lengths
+local EFFECT_LENGTH_ONE = 1
+local EFFECT_LENGTH_TWO = 2
+local EFFECT_LENGTH_THREE = 3
+
 function LibAlchemy:InitializePrices(source)
   --Initializes prices using LibPrice, you need to call this function in your addon before you can use any price related functions
   if source == LibAlchemy.SOURCE_MM and LibAlchemy.isMMInitialized then return end
